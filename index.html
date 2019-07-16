@@ -13,15 +13,19 @@
             height: 400px;
             width: 400px;
         }
-        .form_author>p>input.publish{
+        .form_author>input.publish{
             width: 80px;
             margin: 0 323px;
             border-radius: 5px;
-            position: fixed;
+            height: 30px;
         }
         .div{
-            display: block;
-            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .div>h1, .div>h5, .div>h3{
+            margin: 0;
         }
 
     </style>
@@ -32,15 +36,15 @@
     <p><input type="text" class="header" placeholder="Enter a header"></p>
     <p><textarea class="content" placeholder="Enter a text of article"></textarea></p>
     <p><input type="text" class="image_url" placeholder="Enter an url of image"></p>
-    <p><input type="button" class="publish" value="Publish"></p>
+    <input type="button" class="publish" value="Publish">
     <br>
     <div class="article">
 
-        <div class="div"> <h1 class="header_article">hg</h1></div>
+        <div class="div"> <h1 class="header_article"></h1></div>
+        <div class="div"><h3 class="author_article"></h3></div>
         <div class="div"><h5 class="date_publ"></h5></div>
-        <div class="div"><h3 class="author_article">hf</h3></div>
         <div class="div"><img src="" alt="" class="img_article"></div>
-        <div class="content_div"><p class="content_article">hf</p></div>
+        <div class="content_div"><p class="content_article"></p></div>
     </div>
 </form>
 
@@ -54,14 +58,18 @@
 
         let header_article=document.querySelector('.header_article');
         header_article.innerText=header.value;
-        let date_publ=document.querySelector('.date_publ');
-        date_publ.innerText=`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
         let author_article=document.querySelector('.author_article');
         author_article.innerText=author.value;
+        let date_publ=document.querySelector('.date_publ');
+        date_publ.innerText=`Date of publish: ${new Date().getDay()}/${new Date().getMonth()}/${new Date().getFullYear()}  ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
         let img_article=document.querySelector('.img_article');
         img_article.src=img.value;
         let content_article=document.querySelector('.content_article');
         content_article.innerText=content.value;
+        author.value='';
+        header.value='';
+        content.value='';
+        img.value='';
     }
 </script>
 </body>
