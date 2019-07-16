@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .form_author>p>input{
+            width: 400px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        .form_author>p>textarea.content{
+            height: 400px;
+            width: 400px;
+        }
+        .form_author>p>input.publish{
+            width: 80px;
+            margin: 0 323px;
+            border-radius: 5px;
+            position: fixed;
+        }
+        .div{
+            display: block;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+<form class="form_author">
+    <p><input type="text" class="author" placeholder="Enter an author"></p>
+    <p><input type="text" class="header" placeholder="Enter a header"></p>
+    <p><textarea class="content" placeholder="Enter a text of article"></textarea></p>
+    <p><input type="text" class="image_url" placeholder="Enter an url of image"></p>
+    <p><input type="button" class="publish" value="Publish"></p>
+    <br>
+    <div class="article">
+
+        <div class="div"> <h1 class="header_article">hg</h1></div>
+        <div class="div"><h5 class="date_publ"></h5></div>
+        <div class="div"><h3 class="author_article">hf</h3></div>
+        <div class="div"><img src="" alt="" class="img_article"></div>
+        <div class="content_div"><p class="content_article">hf</p></div>
+    </div>
+</form>
+
+<script>
+    let publish=document.querySelector('.publish');
+    publish.onclick=function () {
+        let author=document.querySelector('.author');
+        let header=document.querySelector('.header');
+        let content=document.querySelector('.content');
+        let img=document.querySelector('.image_url');
+
+        let header_article=document.querySelector('.header_article');
+        header_article.innerText=header.value;
+        let date_publ=document.querySelector('.date_publ');
+        date_publ.innerText=`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
+        let author_article=document.querySelector('.author_article');
+        author_article.innerText=author.value;
+        let img_article=document.querySelector('.img_article');
+        img_article.src=img.value;
+        let content_article=document.querySelector('.content_article');
+        content_article.innerText=content.value;
+    }
+</script>
+</body>
+</html>
